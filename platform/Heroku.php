@@ -15,6 +15,7 @@ function getpath()
 
 function getGET()
 {
+	error_log('POST：' . json_encode($_POST));
 	if (!!$HTTP_RAW_POST_DATA) {
     $tmpdata = $HTTP_RAW_POST_DATA;
 		error_log('RAW：' . $tmpdata);

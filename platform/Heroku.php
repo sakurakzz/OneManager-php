@@ -15,6 +15,13 @@ function getpath()
 
 function getGET()
 {
+	if (!!$HTTP_RAW_POST_DATA) {
+    $tmpdata = $HTTP_RAW_POST_DATA;
+		error_log('RAW：' . $tmpdata);
+} else {
+    $tmpdata = file_get_contents('php://input');
+		error_log('PHPINPUT：' . $tmpdata);
+}
     $p = strpos($_SERVER['REQUEST_URI'],'?');
     if ($p>0) {
         $getstr = substr($_SERVER['REQUEST_URI'], $p+1);

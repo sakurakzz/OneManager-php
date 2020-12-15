@@ -24,7 +24,7 @@ function getGET()
             $tmpdata = file_get_contents('php://input');
             error_log('PHPINPUT：' . $tmpdata);
         }
-        if (!$tmpdata) {
+        if (!!$tmpdata) {
             $postbody = explode("&", $tmpdata);
             foreach ($postbody as $postvalues) {
                 $pos = strpos($postvalues,"=");
